@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$_cateData1['a']}</title>
+<!--描述和摘要-->
+<meta name="Keywords" content="{$_seo['keys']}"/>
+<meta name="description" content="{$_seo['desc']}"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="stylesheet" href="__STATIC__/index/css/bootstrap.css">
+<link rel="stylesheet" href="__STATIC__/index/css/style.css">
+<link rel="stylesheet" href="__STATIC__/index/css/lightgallery.css">
+<link rel="stylesheet" href="__STATIC__/index/css/normalize.css">
+<link rel="stylesheet" href="__STATIC__/index/css/aos.css">
+</head>
+<body>
+	{include file="header" /}
+<div id="myCarousel" class="carousel slide">
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+		<li data-target="#myCarousel" data-slide-to="4"></li>
+	</ol>
+	<div class="carousel-inner">
+		<div class="item active">
+			<img src="__ROOT__/uploads/{$_banner['17']}" class="img-responsive" alt="第一张">
+		</div>
+		<div class="item">
+			<img src="__ROOT__/uploads/{$_banner['18']}" class="img-responsive" alt="第二张">
+		</div>
+		<div class="item">
+			<img src="__ROOT__/uploads/{$_banner['19']}" class="img-responsive" alt="第三张">
+		</div>
+		<div class="item">
+			<img src="__ROOT__/uploads/{$_banner['20']}" class="img-responsive" alt="第四张">
+		</div>
+		<div class="item">
+			<img src="__ROOT__/uploads/{$_banner['21']}" class="img-responsive" alt="第五张">
+		</div>
+	</div>
+	<a href="#myCarousel" data-slide="prev" class="carousel-control left">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	<a href="#myCarousel" data-slide="next" class="carousel-control right">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
+</div>
+	<div class="jumbotron">
+		
+			<div class="row">
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<div class="embed-responsive embed-responsive-16by9">
+  						<embed class="embed-responsive-item" src="http://player.youku.com/embed/XNzg0MjQ3NDEy"></embed>
+  					</div>
+				</div>
+				<div class="col-md-6 col-xs-12 custom-company" aos="flip-left" aos-duration="3000">
+					<h2>公司简介</h2>
+    				<p>{$_gongsi['a']}</p>
+    				<div class="text-center">
+    					<a href="{:url('index/company/index')}" class="btn btn-default btn-lg custom-anniu">了解更多公司简介</a>
+    				</div>
+    				
+				</div>
+			</div>
+		
+	</div>
+	<div class="container custom-news hidden-xs hidden-sm" aos="fade-left">
+		<h2 class="text-center">新闻资讯</h2>
+		<h4 class="text-center"><span>NEWS</span></h4>
+		<ul>
+			<div class="row">
+				{volist name="news" id="vo"}
+				<div class="col-md-4 col-xs-12">
+					<li class="custom-liebiao text-center">
+						<div class="custom-biaoti">
+							<a href="{:url('index/newsdetail/index',['new_id'=>$vo['new_id']])}">{$vo['new_title']}</a>
+						</div>
+						<div class="custom-wenben">
+							<p>
+								{$vo['new_digest']}
+							</p>
+						</div>
+						<div class="custom-lianjie">
+							<a href="{:url('index/newsdetail/index',['new_id'=>$vo['new_id']])}">→</a>
+						</div>
+					</li>
+				</div>
+				{/volist}
+			</div>
+		</ul>
+	</div>
+	<div class="container custom-product" id="custom-chanpin">
+		<div class="row custom-biaoti1">
+			<h2 class="text-center">产品中心</h2>
+			<h4 class="text-center"><span>PRODUCTS</span></h4>
+			<a href="{:url('index/product/index')}">查看更多</a>	
+		</div>
+		    
+		<div class="row custom-list">
+			<div class="demo-gallery">
+        		<ul id="lightgallery" class="list-unstyled row">
+        		{volist name="products" id="vo"}
+            	<li class="col-xs-12 col-md-3" data-src="__ROOT__/uploads/{$vo['product_thumb']}" data-sub-html="<h4>{$vo['product_title']}</h4>" aos="zoom-in">
+                		<a href="">
+                    		<img class="img-responsive" src="__ROOT__/uploads/{$vo['product_thumb']}" style="height:257px;">
+                    			<div class="demo-gallery-poster">
+			            			<img src="__STATIC__/index/images/zoom.png">
+			        			</div>
+                		</a>
+            	</li>
+            	{/volist}
+        		</ul>
+    		</div>
+		</div>
+	</div>
+	<div id="service" class="hidden-xs">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" class="weixin_area">
+                                <img src="__STATIC__/index/images/l02.png" width="47" height="49" class="shows" />
+                                <img src="__STATIC__/index/images/a.png" width="57" height="49" class="hides" />
+                                <img src="__STATIC__/index/images/weixin.jpg" width="300" class="weixin" style="display:none;margin:-100px 57px 0 0" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://wpa.qq.com/msgrd?v=3&uin=800022936&site=qq&menu=yes" target="_blank">
+                                <div class="hides" style="width:161px;display:none;" id="qq">
+                                    <div class="hides" id="p1">
+                                        <img src="__STATIC__/index/images/ll04.png">
+                                    </div>
+                                    <div class="hides" id="p2"><span style="color:#FFF;font-size:13px">2573595991</span>
+                                    </div>
+                                </div>
+                                <img src="__STATIC__/index/images/l04.png" width="47" height="49" class="shows" />
+                            </a>
+                        </li>
+                        <li id="tel">
+                            <a href="javascript:void(0)">
+                                <div class="hides" style="width:161px;display:none;" id="tels">
+                                    <div class="hides" id="p1">
+                                        <img src="__STATIC__/index/images/ll05.png">
+                                    </div>
+                                    <div class="hides" id="p3"><span style="color:#FFF;font-size:12px">4000900165</span>
+                                    </div>
+                                </div>
+                                <img src="__STATIC__/index/images/l05.png" width="47" height="49" class="shows" />
+                            </a>
+                        </li>
+                        <li id="btn">
+                            <a id="top_btn">
+                                <div class="hides" style="width:161px;display:none">
+                                    <img src="__STATIC__/index/images/ll06.png" width="161" height="49" />
+                                </div>
+                                <img src="__STATIC__/index/images/l06.png" width="47" height="49" class="shows" />
+                            </a>
+                        </li>
+                    </ul>
+    </div>
+   {include file="footer" /}
+	<script src="__STATIC__/index/js/jquery-1.11.3.js"></script>
+	<script src="__STATIC__/index/js/bootstrap.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(){
+            $('#lightgallery').lightGallery();
+        });
+    </script>
+	<script src="__STATIC__/index/js/picturefill.min.js"></script>
+    <script src="__STATIC__/index/js/lightgallery.js"></script>
+    <script src="__STATIC__/index/js/lg-fullscreen.js"></script>
+    <script src="__STATIC__/index/js/lg-thumbnail.js"></script>
+    <script src="__STATIC__/index/js/lg-video.js"></script>
+    <script src="__STATIC__/index/js/lg-autoplay.js"></script>
+    <script src="__STATIC__/index/js/lg-zoom.js"></script>
+    <script src="__STATIC__/index/js/lg-hash.js"></script>
+    <script src="__STATIC__/index/js/lg-pager.js"></script>
+    <script src="__STATIC__/index/js/jquery.mousewheel.min.js"></script>
+    <script src="__STATIC__/index/js/nav.js"></script>
+    <script src="__STATIC__/index/js/aos.js"></script>
+    <script>
+    AOS.init({
+    	easing: 'ease-out-back',
+			duration: 1000,
+			disable: window.innerWidth < 1024,
+
+    });
+  </script>
+    <script src="__STATIC__/index/js/xd.js"></script>
+    <script type="text/javascript">
+            $(function() {
+                $("#service a").hover(function() {
+                    if ($(this).prop("className") == "weixin_area") {
+                        $(this).children("img.hides").show();
+                    } else {
+                        $(this).children("div.hides").show();
+                        $(this).children("img.shows").hide();
+                        $(this).children("div.hides").animate({marginRight: '0px'}, '0');
+                    }
+                }, function() {
+                    if ($(this).prop("className") == "weixin_area") {
+                        $(this).children("img.hides").hide();
+                    } else {
+                        $(this).children("div.hides").animate({marginRight: '-163px'}, 0, function() {
+                            $(this).hide();
+                            $(this).next("img.shows").show();
+                        });
+                    }
+                });
+
+                $("#top_btn").click(function() {
+                    $("html,body").animate({scrollTop: 0}, 600);
+                });
+
+                //右侧导航 - 二维码
+                $(".weixin_area").hover(function() {
+                    $(this).children(".weixin").show();
+                },function(){
+                    $(this).children(".weixin").hide();
+                })
+            });
+        </script>
+        <script type="text/javascript">
+        	//波浪动画
+$(function () {
+	var marqueeScroll = function (id1, id2, id3, timer) {
+		var $parent = $("#" + id1);
+		var $goal = $("#" + id2);
+		var $closegoal = $("#" + id3);
+		$closegoal.html($goal.html());
+		function Marquee() {
+			if (parseInt($parent.scrollLeft()) - $closegoal.width() >= 0) {
+				$parent.scrollLeft(parseInt($parent.scrollLeft()) - $goal.width());
+			}
+			else {
+				$parent.scrollLeft($parent.scrollLeft() + 1);
+			}
+		}
+
+		setInterval(Marquee, timer);
+	}
+	var marqueeScroll1 = new marqueeScroll("marquee-box", "wave-list-box1", "wave-list-box2", 20);
+	var marqueeScroll2 = new marqueeScroll("marquee-box3", "wave-list-box4", "wave-list-box5", 40);
+});
+        </script>
+        	
+</body>
+</html>

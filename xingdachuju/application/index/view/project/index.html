@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$_cateData1['e']}</title>
+<!--描述和摘要-->
+<meta name="Keywords" content="{$_seo['keys']}"/>
+<meta name="description" content="{$_seo['desc']}"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="stylesheet" href="__STATIC__/index/css/bootstrap.css">
+<link rel="stylesheet" href="__STATIC__/index/css/style.css">
+<link rel="stylesheet" href="__STATIC__/index/css/aos.css">
+</head>
+<body>
+	{include file="header" /}
+<div class="container" id="case">
+	<h1 class="text-center">工程案例</h1>
+	<h3 class="text-center">精品案例</h3>
+	<div class="row custom-case">
+		<ul>
+			{volist name="_jingpin" id="vo"}
+			<li class="col-md-3 col-xs-6">
+				<img src="__ROOT__/uploads/{$vo.jingpin_image}" class="img-responsive" aos="zoom-in" aos-duration="2000">
+				<h3 class="text-center">{$vo.jingpin_desc}</h3>
+			</li>
+			{/volist}
+		</ul>
+	</div>
+</div>
+<div class="container table-responsive" id="case1">
+	<h1 class="text-center">其他案例</h1>
+	<h3 class="text-center">酒店餐饮厨房工程</h3>
+	<div class="container">
+		{volist name="_case" id="vo"}
+			<li>{$vo['case_name']}</li>
+		{/volist}
+	</div>
+	<h3 class="text-center">工矿企、事业单位食堂厨房工程</h3>
+	<div class="container">
+		{volist name="_case1" id="vo"}
+			<li>{$vo['case1_name']}</li>
+		{/volist}
+	</div>
+</div>
+{include file="footer" /}
+	<script src="__STATIC__/index/js/jquery-1.11.3.js"></script>
+	<script src="__STATIC__/index/js/bootstrap.js"></script>
+	<script src="__STATIC__/index/js/nav.js"></script>
+	<script src="__STATIC__/index/js/aos.js"></script>
+	 <script>
+    AOS.init({
+    	easing: 'ease-out-back',
+			duration: 1000,
+			disable: window.innerWidth < 1024,
+
+    });
+  </script>
+	 <script type="text/javascript">
+        	//波浪动画
+$(function () {
+	var marqueeScroll = function (id1, id2, id3, timer) {
+		var $parent = $("#" + id1);
+		var $goal = $("#" + id2);
+		var $closegoal = $("#" + id3);
+		$closegoal.html($goal.html());
+		function Marquee() {
+			if (parseInt($parent.scrollLeft()) - $closegoal.width() >= 0) {
+				$parent.scrollLeft(parseInt($parent.scrollLeft()) - $goal.width());
+			}
+			else {
+				$parent.scrollLeft($parent.scrollLeft() + 1);
+			}
+		}
+
+		setInterval(Marquee, timer);
+	}
+	var marqueeScroll1 = new marqueeScroll("marquee-box", "wave-list-box1", "wave-list-box2", 20);
+	var marqueeScroll2 = new marqueeScroll("marquee-box3", "wave-list-box4", "wave-list-box5", 40);
+});
+        </script>
+</body>
+</html>

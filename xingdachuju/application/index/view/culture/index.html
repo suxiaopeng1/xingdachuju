@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$_cateData1['j']}</title>
+<!--描述和摘要-->
+<meta name="Keywords" content="{$_seo['keys']}"/>
+<meta name="description" content="{$_seo['desc']}"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="stylesheet" href="__STATIC__/index/css/bootstrap.css">
+<link rel="stylesheet" href="__STATIC__/index/css/style.css">
+</head>
+<body>
+	{include file="header" /}
+
+<div class="container" id="culture">
+	<div class="row custom-wenhua">
+		<h2 class="text-center">企业文化</h2>
+		<h4 class="text-center">{$_culture['a']}</h4>
+	</div>
+	<div class="row custom-writing">
+	  <p class="culture_contit">{$_culture['b']}</p>
+      <p class="culture_contex">{$_culture['c']}</p>
+      <p class="culture_contit">{$_culture['d']}</p>
+      <p class="culture_contex">{$_culture['e']}</p>
+      <p class="culture_contit">{$_culture['f']}</p>
+      <p class="culture_contex">{$_culture['g']}</p>
+      <p class="culture_contit hidden-xs">{$_culture['h']}</p>
+      <p class="culture_contex hidden-xs">{$_culture['i']}</p>
+      <p class="culture_contit hidden-xs">{$_culture['j']}</p>
+      <p class="culture_contex hidden-xs">{$_culture['k']}</p>
+      <p class="culture_contit hidden-xs hidden-sm">{$_culture['l']}</p>
+      <p class="culture_contex hidden-xs hidden-sm">{$_culture['m']}</p>
+      <p class="culture_contit hidden-xs">{$_culture['n']}</p>
+      <p class="culture_contex hidden-xs">{$_culture['o']}</p>
+	</div>
+</div>
+{include file="footer" /}
+<script src="__STATIC__/index/js/jquery-1.11.3.js"></script>
+<script src="__STATIC__/index/js/bootstrap.js"></script>
+<script src="__STATIC__/index/js/nav.js"></script>
+ <script type="text/javascript">
+        	//波浪动画
+$(function () {
+	var marqueeScroll = function (id1, id2, id3, timer) {
+		var $parent = $("#" + id1);
+		var $goal = $("#" + id2);
+		var $closegoal = $("#" + id3);
+		$closegoal.html($goal.html());
+		function Marquee() {
+			if (parseInt($parent.scrollLeft()) - $closegoal.width() >= 0) {
+				$parent.scrollLeft(parseInt($parent.scrollLeft()) - $goal.width());
+			}
+			else {
+				$parent.scrollLeft($parent.scrollLeft() + 1);
+			}
+		}
+
+		setInterval(Marquee, timer);
+	}
+	var marqueeScroll1 = new marqueeScroll("marquee-box", "wave-list-box1", "wave-list-box2", 20);
+	var marqueeScroll2 = new marqueeScroll("marquee-box3", "wave-list-box4", "wave-list-box5", 40);
+});
+        </script>
+</body>
+</html>

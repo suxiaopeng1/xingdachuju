@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$_cateData1['g']}</title>
+<!--描述和摘要-->
+<meta name="Keywords" content="{$_seo['keys']}"/>
+<meta name="description" content="{$_seo['desc']}"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="stylesheet" href="__STATIC__/index/css/bootstrap.css">
+<link rel="stylesheet" href="__STATIC__/index/css/style.css">
+<link rel="stylesheet" href="__STATIC__/index/css/animate.css">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7bT5iZTFqMecVwD0rTIR0hbyEu92ig6g"></script>
+</head>
+<body>
+	{include file="header" /}
+
+<div class="container" id="custom-contract">
+	<div class="row custom-lianxi col-md-12">
+		<div class="custom-lianxi1">
+			<h3 class="text-center">联系我们</h3>
+		</div>
+	</div>
+	<div class="row custom-info col-md-12">
+		<dl class="col-md-4 hidden-xs text-center animated bounceInLeft">
+			<dt>电话</dt>
+			<dd><a href="tel:{$_webset['telephone']}">{$_webset['telephone']}</a></dd>
+		</dl>
+		<dl class="col-md-4 hidden-xs text-center animated zoomIn">
+			<dt>官网</dt>
+			<dd><a href="{$_webset['url']}">{$_webset['url']}</a></dd>
+		</dl>
+		<dl class="col-md-4 text-center animated bounceInRight">
+			<dt>地址</dt>
+			<dd>{$_webset['address']}</dd>
+		</dl>
+	</div>
+	<div class="row custom-map col-md-12" id="custom-map">
+
+		
+	</div>
+	
+</div>
+{include file="footer" /}
+	<script src="__STATIC__/index/js/jquery-1.11.3.js"></script>
+	<script src="__STATIC__/index/js/bootstrap.js"></script>
+	<script src="__STATIC__/index/js/nav.js"></script>
+    <script type="text/javascript">
+    	 // 百度地图API功能
+	var map = new BMap.Map("custom-map");
+	var point = new BMap.Point(112.587823,37.864537);
+	map.centerAndZoom(point, 18);
+	//var marker = new BMap.Marker(point);  // 创建标注
+	//map.addOverlay(marker);               // 将标注添加到地图中
+    var myIcon = new BMap.Icon("__STATIC__/index/images/position2.png", new BMap.Size(50,100));  //定义自己的标注
+    var marker= new BMap.Marker(point,{icon:myIcon});  // 创建标注
+    map.addOverlay(marker); 
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+	map.addControl(new BMap.NavigationControl());//添加控件
+    </script>
+     <script type="text/javascript">
+        	//波浪动画
+$(function () {
+	var marqueeScroll = function (id1, id2, id3, timer) {
+		var $parent = $("#" + id1);
+		var $goal = $("#" + id2);
+		var $closegoal = $("#" + id3);
+		$closegoal.html($goal.html());
+		function Marquee() {
+			if (parseInt($parent.scrollLeft()) - $closegoal.width() >= 0) {
+				$parent.scrollLeft(parseInt($parent.scrollLeft()) - $goal.width());
+			}
+			else {
+				$parent.scrollLeft($parent.scrollLeft() + 1);
+			}
+		}
+
+		setInterval(Marquee, timer);
+	}
+	var marqueeScroll1 = new marqueeScroll("marquee-box", "wave-list-box1", "wave-list-box2", 20);
+	var marqueeScroll2 = new marqueeScroll("marquee-box3", "wave-list-box4", "wave-list-box5", 40);
+});
+        </script>	
+</body>
+</html>

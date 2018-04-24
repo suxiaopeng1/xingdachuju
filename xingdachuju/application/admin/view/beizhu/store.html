@@ -1,0 +1,40 @@
+{extend name="base" /}
+{block name="content"}
+<ul class="nav nav-tabs" role="tablist">
+                <li><a href="{:url('index')}">标签管理</a></li>
+                {if condition="input('param.beizhu_id')"}
+                <li class="active"><a href="">标签编辑</a></li>
+                {else/}
+                 <li class="active"><a href="">标签添加</a></li>
+                {/if}    
+            </ul>
+            <form class="form-horizontal" id="form"  action="" method="post">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">标签管理</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        	<div class="row">
+                        		<label for="" class="col-md-3 control-label">标签名</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="beizhu_name" value="{$oldData['beizhu_name']}">
+                            </div>
+                        	</div>
+                            <div class="row">
+                                <label for="" class="col-md-3 control-label">标签值</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="beizhu_value" value="{$oldData['beizhu_value']}">
+                            </div>
+                            </div>
+                            
+                        
+                    </div>
+                </div>
+                <input type="hidden" name="beizhu_id" value="{:input('param.beizhu_id')}">
+                <div class="row text-center">
+                	<button class="btn btn-primary" type="submit">确定</button>
+                </div>
+                
+            </form>
+{/block}

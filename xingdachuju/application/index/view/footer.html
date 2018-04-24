@@ -1,0 +1,66 @@
+<div class="container hidden-xs" id="custom-bolang">
+   	 <div class="row">
+   	 	 <div class="wave-box">
+
+	<div class="marquee-box marquee-up" id="marquee-box">
+		<div class="marquee">
+			<div class="wave-list-box" id="wave-list-box1">
+				<ul>
+					<li><img height="60" alt="波浪" src="__STATIC__/index/images/wave_02.png"></li>
+				</ul>
+			</div>
+			<div class="wave-list-box" id="wave-list-box2">
+				<ul>
+					<li><img height="60" alt="波浪" src="__STATIC__/index/images/wave_02.png"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="marquee-box" id="marquee-box3">
+		<div class="marquee">
+			<div class="wave-list-box" id="wave-list-box4">
+				<ul>
+					<li><img height="60" alt="波浪" src="__STATIC__/index/images/wave_01.png"></li>
+				</ul>
+			</div>
+			<div class="wave-list-box" id="wave-list-box5">
+				<ul>
+					<li><img height="60" alt="波浪" src="__STATIC__/index/images/wave_01.png"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</div>
+   	 </div>
+   </div>
+<footer id="footer">
+	<div class="container">
+		<div class="row custom-youqing">
+			<div class="custom-dibu1 col-md-2 hidden-xs hidden-sm">
+				<img class="img-responsive" src="__STATIC__/index/images/logo.png">
+			</div>
+			<div class="custom-dibu2 col-md-6 hidden-xs hidden-sm">
+				<h3 class="text-center">友情链接</h3>
+				<ul>
+					{foreach name='_linkData' item='vo'}
+                    <li><a href="{$vo['link_url']}" target="_blank">{$vo['link_name']}</a></li>
+                   {/foreach}
+				</ul>
+			</div>
+			<div class="custom-dibu3 col-md-4">
+				<h3 class="text-center custom-quan">联系我们</h3>
+				<ul>
+					<li class="custom-quan custom-dianhua">电话： <a href="tel:{$_webset['telephone']}">{$_webset['telephone']}</a></li>
+					<li class="hidden-xs hidden-sm">网址： <a href="{$_webset['url']}">{$_webset['url']}</a></li>
+					<li class="custom-quan">地址：{$_webset['address']}</li>
+				</ul>
+
+			</div>
+		</div>
+		<div class="row custom-banquan">
+			<h4 class="text-center custom-quan">{$_webset['copyright']}</h4>
+		</div>
+	</div>
+</footer>

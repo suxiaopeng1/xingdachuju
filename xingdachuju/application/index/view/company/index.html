@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$_cateData1['h']}</title>
+<!--描述和摘要-->
+<meta name="Keywords" content="{$_seo['keys']}"/>
+<meta name="description" content="{$_seo['desc']}"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="stylesheet" href="__STATIC__/index/css/bootstrap.css">
+<link rel="stylesheet" href="__STATIC__/index/css/style.css">
+<link rel="stylesheet" href="__STATIC__/index/css/aos.css">
+</head>
+<body>
+	{include file="header" /}
+<div class="container" id="custom-gongsi">
+	<div class="row custom-timu">
+		<h3 class="text-center">……公司简介……</h3>
+	</div>
+	<div class="row custom-content">
+		<div class="col-md-4 custom-tupian">
+			<img src="__STATIC__/index/images/xd.jpg" class="img-responsive">
+		</div>
+		<div class="col-md-4 hidden-xs hidden-sm custom-biankuang">
+
+		</div>
+		<div class="col-md-4 custom-wenzi">
+			<p>{$_qiye['a']}</p>
+		</div>
+	</div>
+	<div class="container" id="custom-jieshao">
+		<h3>{$_qiye['b']}</h3>
+		<p aos="fade-up">{$_qiye['c']}</p>
+		<p aos="fade-up">{$_qiye['d']}</p>
+		<p aos="fade-up">{$_qiye['e']}</p>
+		<p aos="fade-up">{$_qiye['f']}</p>
+		<p aos="fade-up">{$_qiye['g']}</p>
+	</div>
+	
+</div>
+{include file="footer" /}
+	<script src="__STATIC__/index/js/jquery-1.11.3.js"></script>
+	<script src="__STATIC__/index/js/bootstrap.js"></script>
+	<script src="__STATIC__/index/js/nav.js"></script>
+	<script src="__STATIC__/index/js/aos.js"></script>
+	<script>
+    AOS.init({
+    	easing: 'ease-out-back',
+			duration: 1000,
+			disable: window.innerWidth < 1024,
+
+    });
+  </script>
+	 <script type="text/javascript">
+        	//波浪动画
+$(function () {
+	var marqueeScroll = function (id1, id2, id3, timer) {
+		var $parent = $("#" + id1);
+		var $goal = $("#" + id2);
+		var $closegoal = $("#" + id3);
+		$closegoal.html($goal.html());
+		function Marquee() {
+			if (parseInt($parent.scrollLeft()) - $closegoal.width() >= 0) {
+				$parent.scrollLeft(parseInt($parent.scrollLeft()) - $goal.width());
+			}
+			else {
+				$parent.scrollLeft($parent.scrollLeft() + 1);
+			}
+		}
+
+		setInterval(Marquee, timer);
+	}
+	var marqueeScroll1 = new marqueeScroll("marquee-box", "wave-list-box1", "wave-list-box2", 20);
+	var marqueeScroll2 = new marqueeScroll("marquee-box3", "wave-list-box4", "wave-list-box5", 40);
+});
+        </script>
+</body>
+</html>

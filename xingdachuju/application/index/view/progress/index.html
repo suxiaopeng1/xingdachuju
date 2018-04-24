@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$_cateData1['i']}</title>
+<!--描述和摘要-->
+<meta name="Keywords" content="{$_seo['keys']}"/>
+<meta name="description" content="{$_seo['desc']}"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="stylesheet" href="__STATIC__/index/css/bootstrap.css">
+<link href="__STATIC__/index/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="__STATIC__/index/css/style.css">
+</head>
+<body>
+   {include file="header" /}
+
+<div class="container custom-progress">
+    <div class="row">
+        <div class="">
+            <img src="__STATIC__/index/images/progress1.jpg" class="img-responsive">
+        </div>
+        
+    </div>
+</div>
+<div class="container" id="progress">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-timeline">
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="circle"><span><i class="fa fa-birthday-cake"></i></span></div>
+                        <div class="content">
+                            <span class="year">{$_progress['a']}</span>
+                            <h4 class="title">{$_progress['b']}</h4>
+                            <p class="description">{$_progress['c']}</p>
+                            <div class="icon"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="circle"><span><i class="fa fa-star"></i></span></div>
+                        <div class="content">
+                            <span class="year">{$_progress['d']}</span>
+                            <h4 class="title">{$_progress['e']}</h4>
+                            <p class="description">{$_progress['f']}</p>
+                            <div class="icon"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="circle"><span><i class="fa fa-thumbs-up"></i></span></div>
+                        <div class="content">
+                            <span class="year">{$_progress['g']}</span>
+                            <h4 class="title">{$_progress['h']}</h4>
+                            <p class="description">{$_progress['i']}</p>
+                            <div class="icon"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="circle"><span><i class="fa fa-thumbs-up"></i></span></div>
+                        <div class="content">
+                            <span class="year">{$_progress['j']}</span>
+                            <h4 class="title">{$_progress['k']}</h4>
+                            <p class="description">{$_progress['l']}</p>
+                            <div class="icon"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="circle"><span><i class="fa fa-thumbs-up"></i></span></div>
+                        <div class="content">
+                            <span class="year">{$_progress['m']}</span>
+                            <h4 class="title">{$_progress['n']}</h4>
+                            <p class="description">{$_progress['o']}</p>
+                            <div class="icon"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="circle"><span><i class="fa fa-trophy"></i></span></div>
+                        <div class="content">
+                            <span class="year">{$_progress['p']}</span>
+                            <h4 class="title">{$_progress['q']}</h4>
+                            <p class="description">{$_progress['r']}</p>
+                            <div class="icon"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="circle"><span><i class="fa fa-trophy"></i></span></div>
+                        <div class="content">
+                            <span class="year">{$_progress['s']}</span>
+                            <h4 class="title">{$_progress['t']}</h4>
+                            <p class="description">{$_progress['u']}</p>
+                            <div class="icon"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="circle"><span><i class="fa fa-trophy"></i></span></div>
+                        <div class="content">
+                            <span class="year">{$_progress['v']}</span>
+                            <h4 class="title">{$_progress['w']}</h4>
+                            <p class="description">{$_progress['x']}</p>
+                            <div class="icon"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{include file="footer" /}
+<script src="__STATIC__/index/js/jquery-1.11.3.js"></script>
+<script src="__STATIC__/index/js/bootstrap.js"></script>
+<script src="__STATIC__/index/js/nav.js"></script>
+ <script type="text/javascript">
+            //波浪动画
+$(function () {
+    var marqueeScroll = function (id1, id2, id3, timer) {
+        var $parent = $("#" + id1);
+        var $goal = $("#" + id2);
+        var $closegoal = $("#" + id3);
+        $closegoal.html($goal.html());
+        function Marquee() {
+            if (parseInt($parent.scrollLeft()) - $closegoal.width() >= 0) {
+                $parent.scrollLeft(parseInt($parent.scrollLeft()) - $goal.width());
+            }
+            else {
+                $parent.scrollLeft($parent.scrollLeft() + 1);
+            }
+        }
+
+        setInterval(Marquee, timer);
+    }
+    var marqueeScroll1 = new marqueeScroll("marquee-box", "wave-list-box1", "wave-list-box2", 20);
+    var marqueeScroll2 = new marqueeScroll("marquee-box3", "wave-list-box4", "wave-list-box5", 40);
+});
+        </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$_cateData1['c']}</title>
+<!--描述和摘要-->
+<meta name="Keywords" content="{$_seo['keys']}"/>
+<meta name="description" content="{$_seo['desc']}"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="stylesheet" href="__STATIC__/index/css/bootstrap.css">
+<link rel="stylesheet" href="__STATIC__/index/css/style.css">
+<link rel="stylesheet" href="__STATIC__/index/css/aos.css">
+<link rel="stylesheet" href="__STATIC__/index/css/normalize.css">
+</head>
+<body>
+	{include file="header" /}
+
+<div class="container" id="product">
+	<h1 class="text-center">产品中心</h1>
+	<form class="form-horizontal" id="form"  action="{:url('index/search/index')}" method="get">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">产品检索</h3>
+                    </div>
+                    <div class="panel-body">
+   
+                        <div class="row">
+                            <label for="" class="col-md-3 control-label">请输入产品名称</label>
+                            <div class="col-md-6">
+                                <input type="text" name="product_title"  class="form-control" placeholder="请输入产品名称">
+                            </div>
+                            <div class="col-md-1">
+                              <button class="btn btn-primary form-control" type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+	<div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a href="{:url('index/product/index')}">所有产品</a>
+    {volist name="fenlei" id="vo"}
+    <a href="{:url('index/product/index1',['fenlei_id'=>$vo['fenlei_id']])}" class="custom-xilie">{$vo['fenlei_name']}</a>
+    {/volist}
+        </h3>
+      </div>
+    </div>
+	</div>
+	<div class="row">
+    {volist name="field" id="vo"}
+  		<div class="col-sm-6 col-md-4">
+    		<div class="thumbnail">
+      			<img src="__ROOT__/uploads/{$vo['product_thumb']}" alt="..." aos="zoom-in" style="height:257px;">
+      			<div class="caption">
+        			<h3 class="text-center">{$vo['product_title']}</h3>
+        				<p><a href="{:url('index/productdetail/index',['product_id'=>$vo['product_id']])}" class="btn btn-primary glyphicon glyphicon-search custom-xiangqing" role="button">
+                <span>产品详情</span></a></p>
+      			</div>
+    		</div>
+  		</div>
+      {/volist}
+      <div class="container">
+  <div class="row">
+    <div class="pagination pagination-sm pull-right">
+                {$field->render()}
+            </div>
+  </div>
+  
+</div>
+	</div>
+</div>
+{include file="footer" /}
+	<script src="__STATIC__/index/js/jquery-1.11.3.js"></script>
+	<script src="__STATIC__/index/js/bootstrap.js"></script>
+	<script src="__STATIC__/index/js/nav.js"></script>
+	<script src="__STATIC__/index/js/aos.js"></script>
+	 <script>
+    AOS.init({
+    	easing: 'ease-out-back',
+			duration: 1000,
+			disable: window.innerWidth < 1024,
+
+    });
+  </script>
+	 <script type="text/javascript">
+        	//波浪动画
+$(function () {
+	var marqueeScroll = function (id1, id2, id3, timer) {
+		var $parent = $("#" + id1);
+		var $goal = $("#" + id2);
+		var $closegoal = $("#" + id3);
+		$closegoal.html($goal.html());
+		function Marquee() {
+			if (parseInt($parent.scrollLeft()) - $closegoal.width() >= 0) {
+				$parent.scrollLeft(parseInt($parent.scrollLeft()) - $goal.width());
+			}
+			else {
+				$parent.scrollLeft($parent.scrollLeft() + 1);
+			}
+		}
+
+		setInterval(Marquee, timer);
+	}
+	var marqueeScroll1 = new marqueeScroll("marquee-box", "wave-list-box1", "wave-list-box2", 20);
+	var marqueeScroll2 = new marqueeScroll("marquee-box3", "wave-list-box4", "wave-list-box5", 40);
+});
+        </script>
+</body>
+</html>

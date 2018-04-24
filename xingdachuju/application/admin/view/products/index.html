@@ -1,0 +1,45 @@
+{extend name="base" /}
+{block name="content"}
+ <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#tab1">产品管理</a></li>
+                <li><a href="{:url('store')}">产品添加</a></li>
+            </ul>
+            <form action="" method="post" id="form">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th width="5%">编号</th>
+                                <th>产品缩略图</th>
+                                <th>产品标题</th>
+                                <th width="200">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {foreach name="field" item="vo"}
+                                <tr>
+                                    <td>{$vo['product_id']}</td>
+                                    <td><a href="javascript:;"><img width="50" src="__ROOT__/uploads/{$vo['product_thumb']}"></a></td>
+                                    <td>{$vo['product_title']}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle">操作 <span class="caret"></span></button>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="{:url('edit',['product_id'=>$vo['product_id']])}">编辑</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="{:url('delToRecycle',['product_id'=>$vo['product_id']])}">删除到回收站</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {/foreach}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+            <div class="pagination pagination-sm pull-right">
+                {$field->render()}
+            </div>
+{/block}
